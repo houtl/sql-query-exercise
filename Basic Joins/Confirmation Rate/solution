@@ -1,0 +1,4 @@
+select signups.user_id, round(IFNULL(avg(c.action = 'confirmed'), 0), 2) as confirmation_rate
+from Signups
+left join Confirmations as c on Signups.user_id = c.user_id
+group by user_id

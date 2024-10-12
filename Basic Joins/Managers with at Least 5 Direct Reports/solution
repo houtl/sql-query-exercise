@@ -1,0 +1,5 @@
+select Manager.name as name
+from Employee as Manager
+join Employee as Report on Manager.id = Report.managerId
+group by Manager.Id
+having count(Report.name) >= 5
